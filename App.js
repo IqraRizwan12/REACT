@@ -3,47 +3,76 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [list, setList] = useState([])
-  const[userInput,setUserInput] = useState('')
-  function addItem(){
-    const tempList = [...list]
-    tempList.push(userInput)
-    setList(tempList)
-
-  }
-  function deleteItem(index){
-   const tempList = [...list]
-   tempList.splice(index,1)
-   setList(tempList)
-  }
-
-  function editItem(index ){
-    const tempList = [...list]
-    const a = prompt('Enter updated value')
-   tempList.splice(index,1,a)
-   setList(tempList)
-    
-   
-  }
-  function updateInputState(e){
-    setUserInput(e.target.value)
+  const name = 'Hello World'
+  const obj = {name:'Hello World Object'}
+  const data = ['We','are','United']
+  const list = [{name:'Hello World 1'},{name:'Hello World 2'},{name:'Hello World 3'}]
+  const complex = [{company:'XYZ',jobs:['Javascript','React']},{company:'ABC',jobs:['Angular JS','Ionic']}]
+  const [hide,setHide]= useState(false)
+  function hideTheImage(){
+    setHide(!hide)
   }
 
   return (
     <div className="App">
       <header className="App-header">
-      <input onChange={updateInputState} placeholder='Enter any item' />
-      <br/>
-      <button onClick={addItem}>Add Item</button>
 
-      <ul>
-        {list.map(function(item,index){
-          return <li>{item}<button onClick={() => deleteItem(index)}>Delete</button><button onClick={()=>editItem(index)} >Edit</button></li>
-        })}
-
-      </ul>
+        {hide == false &&<h1> hello World</h1>}
+        <button onClick={hideTheImage}>Hide</button>
         
+        {/* <h1>
+         {name}
+        </h1>
 
+
+        <h1>
+         {obj.name}
+        </h1>
+
+
+
+        <ul>
+          {data.map(function(item){
+            return <li>{item}</li> 
+          })}
+        </ul>
+
+
+
+       <ol>
+        {list.map(function(item){
+          return <li>{item.name}</li>
+
+        })}
+       </ol>
+
+
+
+       <table border="2">
+        <tr>
+          <th>Company</th>
+          <th>Jobs</th>
+        </tr>
+        {complex.map(function(item){
+          return <tr>
+            <td>{item.company}</td>
+            <td>
+              <ol>
+                {item.jobs.map(function(job){
+                  return <li>{job}</li>
+                })}
+               
+              </ol>
+            </td>
+              
+          </tr>
+
+        })}
+       </table> */}
+
+
+
+       
       </header>
     </div>
   );
